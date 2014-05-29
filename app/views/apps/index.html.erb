@@ -1,0 +1,29 @@
+<h1>Capptivate Uploads</h1>
+
+<%= link_to new_app_path, class: "btn btn-large btn-primary" do %>
+        <i class="glyphicon glyphicon-cloud-upload"> New App</i>
+<% end %>
+
+<div class="table-responsive">
+    <table class="table">
+  	  <thead>
+    	  <tr>
+      		<th>Name</th>
+      	  <th>Video Filename</th>
+	  	<th>html Code</th>
+    	</tr>
+  	</thead>
+
+  <tbody>
+	<% @apps.each do |app| %>
+      <tr>
+        <td><%= app.properName %></td>
+		<!-- display the avatar in both the original size and the thumbnail size -->
+		<!-- show the filename for the resume -->
+        <td><%= app.video_file_name %></td>
+		<td><%= app.html %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

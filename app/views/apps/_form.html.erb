@@ -1,0 +1,30 @@
+<%= form_for(@app) do |f| %>
+  <% if @app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @app.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :properName %><br>
+    <%= f.text_field :properName %>
+  </div>
+  <!-- Upload your attachments via a simple file_fields in the form -->
+  <div class="field">
+    <%= f.label :video %><br>
+    <%= f.file_field :video %>
+  </div>
+  <div class="field">
+    <%= f.label "Screenshot" %><br>
+    <%= f.file_field :poster %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
