@@ -11,23 +11,40 @@
     </div>
   <% end %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-  <div class="field">
-    <%= f.label :properName %><br>
-    <%= f.text_field :properName %>
-  </div>
-  <div class="field">
-    <%= f.label :video %><br>
-    <%= f.file_field :video %>
-  </div>
-  <div class="field">
-    <%= f.label "Screenshot" %><br>
-    <%= f.file_field :poster %>
-  </div>
-  <div class="actions">
-    <%= f.submit :class => 'btn btn-large btn-primary' %>
-  </div>
-  </div>
+<div class="col-md-6 col-md-offset-3">
+	<div class="container-fluid newVideo">
+		<div class="row-fluid">
+	 		<div class="form-group">
+  				<div class="field">
+    				<%= f.text_field :properName, placeholder: 'App name', :class => "form-control" %>
+  		  		</div>
+  				<div class="field">
+    				<%= f.text_field :appID, placeholder: 'App ID', :class => "form-control" %>
+  		  		</div>
+				
+				<div class'"row-fluid"'>
+  		  		<div class="field">
+    		  		<%= f.label :video %><br>
+    		  		<%= f.file_field :video %>
+  		  		</div>
+  				<div class="field">
+    				<%= f.label "Screenshot" %><br>
+    				<%= f.file_field :poster %>
+  		  		</div>
+			</div>
+  		  		<div class="actions">
+					<div class="col-md-1 col-md-offset-9">
+    				<%= f.submit :class => 'btn btn-large btn-primary' %>
+					</div>
+  		  	  	</div>
+				<div class="col-md-4">
+				<h2>
+				20MB max file size<br>
+				640 x 1136 .png
+				</h2>
+				</div>
+			</div>
+		</div>
+  	</div>
 </div>
 <% end %>

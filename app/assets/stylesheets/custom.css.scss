@@ -7,8 +7,15 @@ $capptivateGreen: #34D8BC;
 $capptivateDarkGreen: #2CBDA4;
 $capptivateBgrnd: #212121;
 $mediumGray: #292929;
-$lightGray: #313131;
-$outlineGray: #333; 
+$outlineGray: #313131;
+$placeholderGray: #656565;
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
 
 /* universal */
 
@@ -97,6 +104,17 @@ th, tr {
   }
 }
 
+/* containers */
+.container {
+	.newVideo {
+		background-color: $mediumGray;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+}
+
+
 /* forms */
 
 label {
@@ -108,4 +126,13 @@ label {
 
 .field {
 	padding: 10px;
+}
+
+.form-control {
+	background-color: $capptivateBgrnd;
+	text-color: white;
+	border-color: $outlineGray;
+	@include placeholder {
+		color: $placeholderGray;
+	}
 }
