@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609091808) do
+ActiveRecord::Schema.define(version: 20140527043658) do
 
   create_table "apps", force: true do |t|
     t.string   "properName"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20140609091808) do
     t.datetime "updated_at"
     t.string   "html"
     t.string   "js"
-    t.integer  "appID"
   end
 
 end

@@ -1,4 +1,5 @@
 class App < ActiveRecord::Base
+	validates :properName, presence: true
 
   before_save do
     self.downcase = self.properName.downcase
