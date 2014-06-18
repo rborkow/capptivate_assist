@@ -37,7 +37,12 @@ class App < ActiveRecord::Base
       self.html = contents.html_safe
     }
 
-  end  
+  end
+  
+  after_save do
+    File.symlink(self.video_file_name, 'video.mov') unless File.symlink?('video.mov')
+    File.symlink(self.poster_file_name, 'screenshot.png') unless File.symlink?('screenshot.png')
+  end
 
   has_attached_file :video,
     :path => "/home/capptivate/www/videos/:dirName/:basename.:extension"
