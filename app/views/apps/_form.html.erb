@@ -1,6 +1,6 @@
 <%= form_for(@app) do |f| %>
   <% if @app.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="bg-warning">
       <h2><%= pluralize(@app.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-5 col-md-offset-3">
 	<div class="container-fluid newVideo">
 		<div class="row-fluid">
 	 		<div class="form-group">
@@ -23,27 +23,32 @@
 					<div class="field">
 			        <span class="btn btn-upload fileinput-button">
 			          <i class="glyphicon glyphicon-facetime-video"></i>
-			          <span>Add video</span>
+			          <span>Choose .mov</span>
 			          <%= f.file_field :video %>
 			        </span>
-			        <span class="btn btn-upload fileinput-button">
+			        <span class="btn btn-upload fileinput-button pull-right">
 			          <i class="glyphicon glyphicon-picture"></i>
-			          <span>Add screenshot</span>
+			          <span>Choose .png</span>
 			          <%= f.file_field :poster %>
 			        </span>
 				</div>
 			</div>
-  		  		<div class="row-fluid">
-					<div class="col-md-1 col-md-offset-9">
-    				<%= f.submit :class => 'btn btn-warning cancel' %>
-					</div>
-  		  	  	</div>
-				<div class="col-md-4">
-				<h2>
-				20MB max file size<br>
-				640 x 1136 .png
-				</h2>
+  		  		<div class="row">
+					<div class="field">
+					<div class="pull-left">
+					<h2>
+					20MB max file size<br>
+					640 x 1136 .png
+					</h2>
 				</div>
+				<div class="pull-right">
+				<%= f.submit :class => 'btn btn-warning cancel', :style => 'margin: 20px' %>
+			</div>
+					</div>
+					<!--<div class="col-md-1 col-md-offset-4">
+    				<%= f.submit :class => 'btn btn-warning cancel pull-right' %>
+					</div> -->
+  		  	  	</div>
 			</div>
 		</div>
   	</div>
