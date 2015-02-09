@@ -48,10 +48,10 @@ class App < ActiveRecord::Base
     File.symlink(full_path_to_vid, link_path_to_vid) unless File.symlink?(link_path_to_vid)
     File.symlink(full_path_to_png, link_path_to_png) unless File.symlink?(link_path_to_png)
     
-    theMovie = FFMPEG::Movie.new(full_path_to_vid)
-    out = theMovie.transcode("/home/capptivate/www/videos/#{self.properName}/out.mov", "-c:v libx264 -profile:v main -level 4.0 -preset veryfast -crf 22 -an")
-    File.rename(full_path_to_vid, "/home/capptivate/www/videos/#{self.properName}/original.mov")
-    File.rename("/home/capptivate/www/videos/#{self.properName}/out.mov", full_path_to_vid)
+   # theMovie = FFMPEG::Movie.new(full_path_to_vid)
+   # out = theMovie.transcode("/home/capptivate/www/videos/#{self.properName}/out.mov", "-c:v libx264 -profile:v main -level 4.0 -preset veryfast -crf 22 -an")
+   # File.rename(full_path_to_vid, "/home/capptivate/www/videos/#{self.properName}/original.mov")
+   # File.rename("/home/capptivate/www/videos/#{self.properName}/out.mov", full_path_to_vid)
   end
 
   has_attached_file :video,
