@@ -40,8 +40,14 @@ class App < ActiveRecord::Base
   end
   
   after_save do
-    File.symlink(self.video_file_name, 'video.mov') unless File.symlink?('video.mov')
-    File.symlink(self.poster_file_name, 'screenshot.png') unless File.symlink?('screenshot.png')
+    full_path_to_vid = File.expand_path("/home/capptivate/www/videos/#{self.properName}/#{self.video_file_name}")
+    full_path_to_png = File.expand_path("/home/capptivate/www/videos/#{self.properName}/#{self.poster_file_name}")
+
+    link_path_to_vid = File.expand_path("/home/capptivate/www/videos/#{self.properName}/video.mov")
+    link_path_to_png = File.expand_path("/home/capptivate/www/videos/#{self.properName}/screenshot.png")
+
+    File.symlink(full_path_to_vid, link_path_to_vid) unless File.symlink?(link_path_to_vid)
+    File.symlink(full_path_to_png, link_path_to_png) unless File.symlink?(link_path_to_png)
   end
 
   has_attached_file :video,

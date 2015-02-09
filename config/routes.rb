@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :apps
   
   # The priority is based upon order of creation: first created -> highest priority.
